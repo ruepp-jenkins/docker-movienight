@@ -11,12 +11,12 @@ then
     docker buildx build \
         --platform linux/amd64,linux/arm64 \
         -t ${IMAGE_FULLNAME}:latest \
-        --push repo/
+        --push .
 else
     docker buildx build \
         --platform linux/amd64,linux/arm64 \
         -t ${IMAGE_FULLNAME}-test:${BRANCH_NAME} \
-        --push repo/
+        --push .
 fi
 
 # cleanup
