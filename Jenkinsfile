@@ -47,7 +47,7 @@ pipeline {
                 git branch: env.BRANCH_NAME
                 url: env.GIT_URL
             }
-        },
+        }
         stage('Clone remote repository') {
             steps {
                 git branch: 'master'
