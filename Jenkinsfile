@@ -48,12 +48,6 @@ pipeline {
                 url: env.GIT_URL
             }
         }
-        stage('Clone remote repository') {
-            steps {
-                git branch: 'master',
-                url: 'https://github.com/zorchenhimer/MovieNight.git'
-            }
-        }
         stage('Build') {
             steps {
                 sh 'chmod +x scripts/*.sh'
