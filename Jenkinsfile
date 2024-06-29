@@ -48,6 +48,12 @@ pipeline {
                 url: env.GIT_URL
             }
         }
+        stage('Dev') {
+            steps {
+                sh 'pwd'
+                sh 'ls -lah'
+            }
+        }
         stage('Clone remote repository') {
             steps {
                 git branch: 'master',
@@ -56,8 +62,8 @@ pipeline {
         }
         stage('Build') {
             steps {
+                sh 'pwd'
                 sh 'ls -lah'
-                sh 'ls -lah scripts'
                 sh 'chmod +x scripts/*.sh'
                 sh './scripts/start.sh'
             }
