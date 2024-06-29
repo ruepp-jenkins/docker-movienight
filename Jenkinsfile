@@ -56,6 +56,8 @@ pipeline {
         }
         stage('Build') {
             steps {
+                sh 'ls -lah'
+                sh 'ls -lah scripts'
                 sh 'chmod +x scripts/*.sh'
                 sh './scripts/start.sh'
             }
