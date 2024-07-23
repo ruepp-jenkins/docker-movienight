@@ -3,7 +3,8 @@ properties(
         githubProjectProperty(
             displayName: 'docker-movienight',
             projectUrlStr: 'https://github.com/ruepp-info/docker-movienight/'
-        )
+        ),
+        disableConcurrentBuilds()
     ]
 )
 
