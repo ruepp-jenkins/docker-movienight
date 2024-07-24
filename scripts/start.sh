@@ -12,11 +12,13 @@ then
     docker buildx build \
         --platform linux/amd64,linux/arm64 \
         -t ${IMAGE_FULLNAME}:latest \
+        --pull \
         --push ./repo/
 else
     docker buildx build \
         --platform linux/amd64,linux/arm64 \
         -t ${IMAGE_FULLNAME}-test:${BRANCH_NAME} \
+        --pull \
         --push ./repo/
 fi
 
