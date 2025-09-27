@@ -63,8 +63,7 @@ pipeline {
         }
         stage('SBOM generation') {
             steps {
-                sh "mkdir -p ${WORKSPACE}/sbom && chmod 777 ${WORKSPACE}/sbom"
-                sh "docker run --rm -v /opt/docker/jenkins/jenkins_ws:/home/jenkins/workspace cyclonedx/cyclonedx-gomod app -output ${WORKSPACE}/sbom/bom.xml ${WORKSPACE}"
+                sh "docker run --rm -v /opt/docker/jenkins/jenkins_ws:/home/jenkins/workspace cyclonedx/cyclonedx-gomod app -output ${WORKSPACE}/repo/bom.xml ${WORKSPACE}/repo/"
             }
         }
         stage('DependencyTracker') {
@@ -89,7 +88,7 @@ pipeline {
                 }
 
                 dependencyTrackPublisher(
-                    artifact: 'sbom/bom.xml',
+                    artifact: 'repo/bom.xml',
                     projectName: env.JOB_NAME,
                     projectVersion: env.BUILD_NUMBER,
                     synchronous: false,
