@@ -23,6 +23,7 @@ pipeline {
     triggers {
         URLTrigger(
             cronTabSpec: 'H/30 * * * *',
+            labelRestriction: 'urltrigger',
             entries: [
                 URLTriggerEntry(
                     url: 'https://hub.docker.com/v2/namespaces/library/repositories/ubuntu/tags/24.04',
